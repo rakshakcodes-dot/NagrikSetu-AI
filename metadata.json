@@ -1,0 +1,6 @@
+{
+  "name": "NagrikSetu",
+  "description": "Civic grievance and pothole monitoring portal for citizens and municipal officers.",
+  "requestFramePermissions": ["geolocation", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
