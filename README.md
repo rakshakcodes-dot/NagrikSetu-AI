@@ -95,22 +95,19 @@ Open your browser and navigate to `http://localhost:3000`.
 
 ---
 
-## 🌐 Hosting on GitHub Pages
+## 🌐 Hosting on GitHub Pages (Fixing Blank Screen)
 
-This project is pre-configured for GitHub Pages:
+If you see a **blank white screen** on GitHub Pages, it is usually because GitHub Pages is set to serve raw source files (`/`) instead of building with GitHub Actions.
 
-1. Push your code to your GitHub repository:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit of NagrikSetu"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-   git push -u origin main
-   ```
-2. Go to your repository on **GitHub** → **Settings** → **Pages**.
-3. Under **Build and deployment** → **Source**, select **GitHub Actions**.
-4. The `.github/workflows/deploy.yml` workflow will automatically build and deploy your site on every push to `main`!
+### Easy Fix:
+1. Go to your repository on **GitHub** → **Settings** → **Pages**.
+2. Under **Build and deployment** → **Source**, change the dropdown from **"Deploy from a branch"** to **"GitHub Actions"**.
+3. Push any commit or go to the **Actions** tab and click **Run workflow** on `Deploy NagrikSetu to GitHub Pages`.
+4. Wait ~1 minute for the green checkmark — your site will load properly with all styles and scripts!
+
+### Why this happens:
+- Browsers cannot run raw TypeScript/JSX files directly (`src/main.tsx`).
+- Setting the Source to **GitHub Actions** tells GitHub to execute `npm run build` (Vite) and publish the compiled static production bundle (`dist/`), complete with `.nojekyll` and relative `./` asset paths.
 
 ---
 
